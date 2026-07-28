@@ -1,6 +1,10 @@
 # Compiled class file
 *.class
 
+# Properties
+application-local.yaml
+application-local.yml
+
 # Log file
 *.log
 
