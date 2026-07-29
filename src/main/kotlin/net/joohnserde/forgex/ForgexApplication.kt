@@ -1,4 +1,4 @@
-package com.joohnserde.forgex
+package net.joohnserde.forgex
 
 import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.runApplication
