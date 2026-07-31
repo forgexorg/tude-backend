@@ -1,10 +1,13 @@
 package net.joohnserde.forgex.model.auth
 
+import jakarta.validation.constraints.NotBlank
+
 class AuthRequest(
 
-    val username: Stirng? = null,
+    val username: String? = null,
 
     val email: String? = null,
 
-    val password: Stirng
+    @field:NotBlank
+    val password: String
 )
