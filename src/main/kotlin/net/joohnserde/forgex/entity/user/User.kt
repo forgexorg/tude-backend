@@ -10,7 +10,7 @@ import java.util.Date
 import java.util.UUID
 
 @Entity
-@Table(name = "user")
+@Table(name = "users")
 data class User(
 
     @Id

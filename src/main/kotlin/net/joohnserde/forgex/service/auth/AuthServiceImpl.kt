@@ -61,7 +61,9 @@ class AuthServiceImpl(
             name = registerRequest.name,
             username = registerRequest.username,
             email = registerRequest.email,
-            password = registerRequest.newPassword,
+            password = passwordEncoder.encode(
+                registerRequest.newPassword
+            )!!,
             role = "USER",
             registered_at = Date()
         )
