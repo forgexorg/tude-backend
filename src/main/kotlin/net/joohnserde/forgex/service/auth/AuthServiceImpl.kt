@@ -53,17 +53,17 @@ class AuthServiceImpl(
 
         validationUtil.validate(registerRequest)
 
-        val checkEmail = userRepository.findByEmail(registerRequest.email)
+        if (userRepository.existsByUsername(registerRequest.username))
+            throw UnauthenticatedException("the username is already used")
 
-        if (checkEmail != null) throw UnauthenticatedException("the email is already registered")
+        if (userRepository.existsByEmail(registerRequest.email))
+            throw UnauthenticatedException("the email is already registered")
 
         val newUser = User(
             name = registerRequest.name,
             username = registerRequest.username,
             email = registerRequest.email,
-            password = passwordEncoder.encode(
-                registerRequest.newPassword
-            )!!,
+            password = registerRequest.password,
             role = "USER",
             registered_at = Date()
         )

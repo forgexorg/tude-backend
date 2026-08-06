@@ -14,5 +14,5 @@ class RegisterRequest(
     val email: String,
 
     @field:NotBlank
-    val newPassword: String
+    val password: String
 )
