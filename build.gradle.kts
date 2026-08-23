@@ -31,7 +31,9 @@ dependencies {
     
     implementation("org.springframework.session:spring-session-jdbc")// jdbc session
     
-    runtimeOnly("org.postgresql:postgresql")// postgresql  driver
+    runtimeOnly("org.postgresql:postgresql")// postgresql driver
+
+    //implementation("org.springframework.boot:spring-boot-starter-oauth2-resource-server")// oauth2
 	
     // test
     testImplementation("org.springframework.boot:spring-boot-starter-data-jpa-test")

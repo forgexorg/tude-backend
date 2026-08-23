@@ -34,6 +34,6 @@ data class User(
     val role: String,
 
     @Column(name = "registered_at")
-    val registered_at: Date
+    val registeredAt: Date
 
 )

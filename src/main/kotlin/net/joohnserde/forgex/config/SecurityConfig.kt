@@ -20,6 +20,7 @@ class SecurityConfig {
                 it
                     .requestMatchers("/error").permitAll()
 
+                    .requestMatchers("/api/new_habit").permitAll()
                     .requestMatchers("/api/register").permitAll()
                     .requestMatchers("/api/login").permitAll()
 

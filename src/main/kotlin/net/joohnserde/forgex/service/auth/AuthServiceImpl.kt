@@ -65,7 +65,7 @@ class AuthServiceImpl(
             email = registerRequest.email,
             password = registerRequest.password,
             role = "USER",
-            registered_at = Date()
+            registeredAt = Date()
         )
 
         userRepository.save(newUser)
@@ -81,7 +81,7 @@ class AuthServiceImpl(
             name = user.name,
             username = user.username,
             email = user.email,
-            registered_at = user.registered_at
+            registeredAt = user.registeredAt
         )
     }
 }

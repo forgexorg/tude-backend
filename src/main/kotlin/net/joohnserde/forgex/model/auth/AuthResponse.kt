@@ -10,5 +10,5 @@ class AuthResponse(
 
     val email: String,
 
-    val registered_at: Date
+    val registeredAt: Date
 )
