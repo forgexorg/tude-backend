@@ -23,28 +23,28 @@ data class Habit(
     val userId: UUID,
 
     @Column(name = "title")
-    val title: String,
+    var title: String,
 
     @Column(name = "description")
-    val description: String?,
+    var description: String?,
 
     @Column(name = "category")
-    val category: String?,
+    var category: String?,
 
     @Column(name = "frequency")
-    val frequency: String,
+    var frequency: String,
 
     @Column(name = "current_streak")
-    val currentStreak: Int,
+    var currentStreak: Int,
 
     @Column(name = "highest_streak")
-    val highestStreak: Int,
+    var highestStreak: Int,
 
     @Column(name = "reminder_time")
-    val reminderTime: Date?,
+    var reminderTime: Date?,
 
     @Column(name = "status")
-    val status: HabitStatus,
+    var status: HabitStatus,
 
     @Column(name = "created_at")
     val createdAt: Date,

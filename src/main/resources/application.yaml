@@ -1,3 +1,9 @@
 spring:
+
   profiles: 
     active: local
+
+  logging:
+    level:
+      org.hibernate.orm.results: DEBUG
+      org.hibernate.stat: DEBUG

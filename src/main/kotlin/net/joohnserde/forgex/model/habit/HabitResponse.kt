@@ -5,6 +5,8 @@ import java.util.UUID
 
 class HabitResponse(
 
+    val id: UUID,
+
     val userId: UUID,
 
     val title: String,
