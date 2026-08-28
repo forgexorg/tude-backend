@@ -7,9 +7,6 @@ import java.util.UUID
 
 class CreateHabitRequest(
 
-    @field:NotNull
-    val userId: UUID,
-
     @field:NotBlank
     val title: String,
 

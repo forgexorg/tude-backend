@@ -6,6 +6,7 @@ import net.joohnserde.forgex.model.habit.CreateHabitRequest
 import net.joohnserde.forgex.model.habit.HabitResponse
 import net.joohnserde.forgex.model.habit.HabitStatus
 import net.joohnserde.forgex.model.habit.UpdateHabitRequest
+import net.joohnserde.forgex.model.habit.UpdateHabitStatusRequest
 import net.joohnserde.forgex.repository.habit.HabitRepository
 import net.joohnserde.forgex.validation.ValidationUtil
 import org.springframework.data.repository.findByIdOrNull
@@ -28,7 +29,7 @@ class HabitServiceImpl(
         validationUtil.validate(habitRequest)
 
         val newHabit = Habit(
-            userId = habitRequest.userId,
+            userId = UUID.fromString("550e8400-e29b-41d4-a716-446655440000"),
             title = habitRequest.title,
             description = habitRequest.description,
             category = habitRequest.category,
@@ -41,7 +42,6 @@ class HabitServiceImpl(
         )
 
         habitRepository.save(newHabit)
-
         return toHabitResponse(newHabit)
     }
 
@@ -54,17 +54,28 @@ class HabitServiceImpl(
             ?: throw NotFoundException("habit not found")
 
         habit.apply {
-            title = habitRequest.title
             description = habitRequest.description
             category = habitRequest.category
             frequency = habitRequest.frequency
             reminderTime = habitRequest.reminderTime
         }
-
         habitRepository.save(habit)
-
         return toHabitResponse(habit)
     }
+
+    override fun updateStatus(
+        id: UUID,
+        habitRequest: UpdateHabitStatusRequest
+    ): HabitResponse {
+
+        val habit = habitRepository.findByIdOrNull(id)
+            ?: throw NotFoundException("habit not found")
+
+        habit.status = habitRequest.habitStatus
+        habitRepository.save(habit)
+        return toHabitResponse(habit)
+    }
+
 
     fun toHabitResponse(habit: Habit): HabitResponse {
         return HabitResponse(
@@ -81,4 +92,5 @@ class HabitServiceImpl(
             createdAt = habit.createdAt,
         )
     }
+
 }

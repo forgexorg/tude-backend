@@ -21,6 +21,7 @@ class SecurityConfig {
                     .requestMatchers("/error").permitAll()
 
                     .requestMatchers("/api/habit/*/update").permitAll()
+                    .requestMatchers("/api/habit/*/update_status").permitAll()
                     .requestMatchers("/api/habit/create").permitAll()
                     .requestMatchers("/api/register").permitAll()
                     .requestMatchers("/api/login").permitAll()

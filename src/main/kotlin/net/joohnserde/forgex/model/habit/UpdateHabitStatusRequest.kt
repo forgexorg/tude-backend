@@ -2,17 +2,10 @@ package net.joohnserde.forgex.model.habit
 
 import jakarta.validation.constraints.NotBlank
 import net.joohnserde.forgex.model.habit.HabitStatus
-import java.sql.Date
 import java.util.UUID
 
-class UpdateHabitRequest(
-
-    val description: String?,
-
-    val category: String?,
+class UpdateHabitStatusRequest(
 
     @field: NotBlank
-    val frequency: String,
-
-    val reminderTime: Date?,
+    val habitStatus: HabitStatus
 )
